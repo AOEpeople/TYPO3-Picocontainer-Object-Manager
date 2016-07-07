@@ -1,0 +1,24 @@
+{
+    "name": "aoe/eft-object-manager",
+    "config": {
+        "secure-http": false
+    },
+    "type": "typo3-cms-extension",
+    "authors": [
+        {
+            "name": "AOE GmbH",
+            "email": "dev@aoe.com"
+        }
+    ],
+    "license": "http://www.gnu.org/copyleft/gpl.html",
+    "require": {
+        "php": ">=5.5.0",
+        "typo3/cms-core": "*",
+        "typo3/cms-extbase": "*"
+    },
+    "replace": {
+        "p2e": "*",
+        "picocontainer": "*",
+        "aoe/picocontainer": "*"
+    }
+}
