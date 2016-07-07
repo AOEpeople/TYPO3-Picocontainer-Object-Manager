@@ -1,5 +1,5 @@
 {
-    "name": "aoe/eft-object-manager",
+    "name": "aoe/picocontainer-object-manager",
     "config": {
         "secure-http": false
     },
@@ -17,7 +17,7 @@
         "typo3/cms-extbase": "*"
     },
     "replace": {
-        "p2e": "*",
+        "picocontainer_object_manager": "*",
         "picocontainer": "*",
         "aoe/picocontainer": "*"
     }

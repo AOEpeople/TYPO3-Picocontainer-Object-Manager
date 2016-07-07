@@ -1,7 +1,7 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = array(
-    'title' => 'EFT ObjectManager: Bridge to Extbase ObjectManager',
+    'title' => 'Picocontainer bridge to Extbase ObjectManager',
     'description' => '',
     'category' => 'system',
     'author' => 'AOE GmbH',
@@ -11,7 +11,7 @@ $EM_CONF[$_EXTKEY] = array(
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
     'author_company' => '',
-    'version' => '0.210.0',
+    'version' => '0.0.1',
     'constraints' => array(
         'depends' => array(
             'cms' => '',
