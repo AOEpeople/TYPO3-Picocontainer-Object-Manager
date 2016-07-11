@@ -10,11 +10,14 @@
             "email": "dev@aoe.com"
         }
     ],
-    "license": "http://www.gnu.org/copyleft/gpl.html",
     "require": {
         "php": ">=5.5.0",
         "typo3/cms-core": "*",
         "typo3/cms-extbase": "*"
+    },
+    "require-dev": {
+        "typo3/cms": "6.2.*",
+        "phpunit/phpunit": "4.8.*"
     },
     "replace": {
         "picocontainer_object_manager": "*",
