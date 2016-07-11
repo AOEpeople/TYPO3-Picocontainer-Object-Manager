@@ -15,6 +15,7 @@ class ObjectManager extends ExtbaseObjectManager
 
     public function __construct()
     {
+        parent::__construct();
         $this->objectContainer = GeneralUtility::makeInstance(Container::class);
         $this->objectContainer->setBridgedClassInfoFactory(new ClassInfoFactory());
     }
