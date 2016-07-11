@@ -13,6 +13,11 @@ class tx_picocontainer_IoC_manager
     public static $singletons = [];
 
     /**
+     * @var array
+     */
+    public static $parsedImplementations = [];
+
+    /**
      * @var \TYPO3\CMS\Extbase\Object\ObjectManager
      */
     private static $bridgedObjectManager;
@@ -66,6 +71,7 @@ class tx_picocontainer_IoC_manager
      */
     public static function getSingleton($objectName)
     {
+        self::registerImplementation($objectName);
         return self::getObjectManager()->get($objectName);
     }
 
@@ -86,11 +92,12 @@ class tx_picocontainer_IoC_manager
      */
     public static function create($objectName)
     {
+        self::registerImplementation($objectName);
         return self::getObjectManager()->get($objectName);
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Object\ObjectManager
+     * @return \Aoe\PicocontainerObjectManager\Object\ObjectManager
      */
     private static function getObjectManager()
     {
@@ -102,5 +109,34 @@ class tx_picocontainer_IoC_manager
             );
         }
         return self::$bridgedObjectManager;
+    }
+
+    /**
+     * @param string $objectName
+     */
+    private static function registerImplementation($objectName)
+    {
+        if (!self::isImplementationAlreadyParsed($objectName) && class_exists($objectName)) {
+            self::$parsedImplementations[] = $objectName;
+            $reflectionClass = new ReflectionClass($objectName);
+            $interfaces = $reflectionClass->getInterfaces();
+            foreach ($interfaces as $interface) {
+                /** @var \ReflectionClass $interface */
+                /** @var \Aoe\PicocontainerObjectManager\Object\Container\Container $container */
+                $container = self::getObjectManager()->get(
+                    \Aoe\PicocontainerObjectManager\Object\Container\Container::class
+                );
+                $container->registerImplementation($interface->getName(), $objectName);
+            }
+        }
+    }
+
+    /**
+     * @param string $objectName
+     * @return bool
+     */
+    private static function isImplementationAlreadyParsed($objectName)
+    {
+        return in_array($objectName, self::$parsedImplementations);
     }
 }
