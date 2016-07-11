@@ -18,6 +18,9 @@ class Container extends ExtbaseContainer
         return $this->bridgedClassInfoFactory;
     }
 
+    /**
+     * @param ClassInfoFactory $classInfoFactory
+     */
     public function setBridgedClassInfoFactory(ClassInfoFactory $classInfoFactory)
     {
         $this->bridgedClassInfoFactory = $classInfoFactory;
