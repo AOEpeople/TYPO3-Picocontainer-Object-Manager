@@ -26,7 +26,7 @@ class ClassInfoFactory extends ExtbaseClassInfoFactory
             $className,
             $this->getConstructorArgs($reflectedClass),
             [],
-            $this->isSingleton($reflectedClass),
+            $this->isSingleton($reflectedClass) || in_array($className, \tx_picocontainer_IoC_manager::$singletons),
             $this->isInitializable($reflectedClass),
             []
         );
