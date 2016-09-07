@@ -18,11 +18,6 @@
         "typo3/cms": "6.2.*",
         "phpunit/phpunit": "4.8.*"
     },
-    "replace": {
-        "picocontainer_object_manager": "*",
-        "picocontainer": "*",
-        "aoe/picocontainer": "*"
-    },
     "autoload": {
         "classmap": ["Classes/"]
     }
