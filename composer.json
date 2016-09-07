@@ -22,5 +22,8 @@
         "picocontainer_object_manager": "*",
         "picocontainer": "*",
         "aoe/picocontainer": "*"
+    },
+    "autoload": {
+        "classmap": ["Classes/"]
     }
 }
